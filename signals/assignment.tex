@@ -1,0 +1,99 @@
+\documentclass[16pt]{article}
+
+%\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+%\lstset{language=c, frame=single, rulesepcolor=\color{blue}}
+
+\lstset{ %
+language=c,                % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%numbers=left,                   % where to put the line-numbers
+%numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
+                                % will be numbered
+%numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+%escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%morekeywords={*,...}            % if you want to add more keywords to the set
+}
+\usepackage{csquotes}
+%\usepackage{mdwtab}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fullpage} %use this package to the standard 1 inch margins on all sides
+\begin{document}
+\title{\huge \textbf{Wayne State University \\
+ \vline \\
+\Huge CSC 4421 - Spring/Summer 2017 \\
+ Computer Operating Systems Labs\\
+ Lab 6 - Signals}\\
+ \vline
+ }
+\author{\textbf{Instructor}  \vspace{0.2cm} \\ Saeid Balaneshin-kordan\\
+}
+\date{}
+\maketitle
+
+\begin{center}
+\Large Points Possible: 100
+
+\textcolor{red}{Due: June 25, 2016}
+\end{center}
+
+\section*{Goals}
+
+The purpose of this lab is to help you learn about Signals.
+
+\section*{Tasks}
+
+\subsection*{Task 1}
+\begin{itemize}
+\item Write a function for handling SIGALRM:
+\item According to this link:
+\url{https://www.securecoding.cert.org/confluence/display/c/SIG31-C.+Do+not+access+shared+objects+in+signal+handlers},
+\begin{displayquote}
+``Accessing or modifying shared objects in signal handlers can result in race conditions that can leave data in an inconsistent state. The two exceptions (C Standard, 5.1.2.3, paragraph 5) to this rule are the ability to read from and write to lock-free atomic objects and variables of type ``volatile sig\_atomic\_t''. Accessing any other type of object from a signal handler is undefined behavior. ''
+\end{displayquote}
+Therefore, globally define and initialize a flag with type ``volatile sig\_atomic\_t''.
+
+\item use a system call to handle signal SIGALRM with the function that you have already defined.
+
+\item use a system call to set an alarm clock for delivery of SIGALRM every one second.
+
+\item use the defined flag and the alarm clock to print the message: 
+\begin{verbatim}
+step 1/10
+step 2/10
+step 2/10
+...
+\end{verbatim}
+\end{itemize}
+
+\subsection*{Task 2}
+\begin{itemize}
+\item Define a function and use a system call to handle signal SIGINT
+\item create 10 child processes
+\item Use a system call to send the signal SIGINT to each of the child processes
+\item Use a system call to wait for the child processes to change their state 
+\item Use WIFEXITED to check and print out the status of child processes
+\end{itemize}
+\end{document}
+
+
+
+\end{document} 
+

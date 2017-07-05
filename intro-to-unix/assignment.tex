@@ -1,0 +1,174 @@
+\documentclass[16pt]{article}
+
+%\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+%\lstset{language=c, frame=single, rulesepcolor=\color{blue}}
+
+\lstset{ %
+language=c,                % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%numbers=left,                   % where to put the line-numbers
+%numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
+                                % will be numbered
+%numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+%escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+%\usepackage{mdwtab}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fullpage} %use this package to the standard 1 inch margins on all sides
+\begin{document}
+\title{\huge \textbf{Wayne State University \\
+ \vline \\
+\Huge CSC 4421 - Summer 2017 \\
+ Computer Operating Systems Labs\\
+ Lab 1 - Introduction to UNIX}\\
+ \vline
+ }
+\author{\textbf{Instructors}  \vspace{0.2cm} \\ 
+Saeid Balaneshin
+}
+%\date{\today}
+\maketitle
+
+\begin{center}
+\Large Points Possible: 100
+
+\textcolor{red}{Due: May 21, 2017}
+\end{center}
+
+\section*{Goals}
+
+The purpose of this lab is to help you get warmed up in this class and get familiar with Linux in the following aspects:
+\begin{itemize}
+\item Introduction to Linux;
+\item Get help in Linux;
+\item Edit and compile C/C++ programs in Linux;
+\item Submit your homework.
+\end{itemize}
+
+
+\section*{Tasks}
+
+\subsection*{Task 0}
+
+Start Ubuntu Linux, log in your account, and get familiar with the environment of this operating system. If you are working with Putty, run Putty. Connect to \url{Paris.cs.wayne.edu} . Use your AccessID and password to log in.
+
+\subsection*{Task 1}
+
+Open the terminal of Linux. Try out the following Linux commands. For each command explain what it does (in one or two sentences). Put your answer in a file called Answer2task1.txt (create in Windows or Ubuntu). You need to apply some of these commands to a file or directory to see how they work.
+
+\begin{itemize}
+\item	man man
+\item	who
+\item	whoami
+\item	uname
+\item	ls (not one-s)
+\item	cat
+\item	cp
+\item	mkdir
+\item	rm / rmdir
+\item	mv
+\item	cd
+\item	ls -l
+\end{itemize}
+
+to learn a little more about the man command. It is probably more than you wanted to know. Keep hitting the space bar to get the next screen or the Enter to see next line. Look for the following sections as you go:
+
+NAME
+
+SYNOPSIS
+
+DESCRIPTION
+
+Now take a look at the man page for ls. Find the answers to the following questions and write them up.
+\begin{itemize}
+\item What is the default sort order for ls? 
+
+\item What does ``ls -a'' do? 3. Is ``q'' a legal option for ls? 
+
+\item Is ``R'' a legal option for ls?
+
+\item In what directory can ``ls'' usually be found? (The command ``ls'' is a file, which executes a program to do the ls command.)?
+\end{itemize}
+
+\subsection*{Task 2}
+There are a number of editors in Linux. gedit is the default editor in Ubuntu. Many people like emacs which can be integrated easily with the compilers. A few diehards love vi or vim, but it has a steep learning curve. Besides, nano and pico are also good editors. In this task, you need to learn to use at least one editor. You can take a look at the following resources to get more information about Linux editors.
+
+\begin{itemize}
+\item	gedit: \url{http://projects.gnome.org/gedit/}
+
+\item	nano: \url{http://www.debianadmin.com/nano-editor-tutorials.html}
+
+\item	pico: \url{http://www.udel.edu/topics/software/general/editors/unix/pico/}
+
+\item	emacs: \url{http://www.gnu.org/software/emacs/tour/}
+
+\item	vim: \url{http://www.vim.org/docs.php}
+
+\end{itemize}
+
+\subsection*{Task 3}
+Input the program below, using one of the Linux editors. Name your program commandLine.cpp or commandLine.c. If you use vim, notice that you can only input in edit mode, any other operations should be done in command mode. Use this command to save and quit
+:wq
+\begin{lstlisting}
+#include <limits.h> 
+#include <stdio.h> 
+#include <unistd.h> 
+#ifndef PATHMAX 
+	#define PATHMAX 255 
+#endif
+
+int main (void) 
+{ 
+	char mycwd [PATHMAX]; 
+    if ( getcwd (mycwd, PATHMAX) == NULL) 
+    { 
+    	perror ( "Failed to get current working directory" ); 
+        return 1; 
+    } 
+    printf ( "Current working directory : %s \n", mycwd); 
+    return 0; 
+}
+\end{lstlisting} 
+
+
+\begin{itemize}
+\item Provide a ``makefile'' that you can use with ``make'' to (1) build and (2) clean a binary file. 
+
+\item	Run it to make sure it works. To run an executable file you need to write: FileName.out
+
+\item	What does getcwd do? 
+
+\item In what kind of scenarios getcwd will return an error? 
+
+\item Use the system call ``write'' and file descriptor ``STDERR\_FILENO'' in place of ``perror'' function and repeat the above steps.
+
+\end{itemize}
+
+\subsection*{Task 4}
+
+Copy everything you have in a folder called Lab0\_lastname\_firstname, then use ``tar'' command to compress your tasks' files and folders and upload the tar or zip file to Blackboard.
+
+\end{document}
+
+\end{document} 
+

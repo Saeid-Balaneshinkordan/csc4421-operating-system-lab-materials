@@ -1,0 +1,114 @@
+\documentclass[16pt]{article}
+
+%\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+%\lstset{language=c, frame=single, rulesepcolor=\color{blue}}
+
+\lstset{
+language=c,                % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%numbers=left,                   % where to put the line-numbers
+%numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
+                                % will be numbered
+%numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+%escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+%\usepackage{mdwtab}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fullpage} %use this package to the standard 1 inch margins on all sides
+\begin{document}
+\title{\huge \textbf{Wayne State University \\
+ \vline \\
+\Huge CSC 4421 - Sprint/Summer 2017 \\
+ Computer Operating Systems Labs\\
+ Lab 8 - Address Translation Simulator}\\
+ \vline
+ }
+\author{\textbf{Instructor}  \vspace{0.2cm} \\ 
+Saeid Balaneshin-kordan
+}
+\date{}
+\maketitle
+
+\begin{center}
+\Large Points Possible: 100 
+
+\textcolor{red}{Due: July 9, 2017}
+\end{center}
+
+\section*{Submission}
+
+In this lab, you are required to run an address simulator and put your answers to the following questions in a file lastname\_firstname\_lab1.docx. Use one file with all of the answers and screen-shots. Upload the file to Blackboard(no need to zip). Every red star represents something you need to submit(either a question or an image). Add each item with a red star to a .docx file, and submit just that file to blackboard.
+
+
+
+\section*{Tasks}
+
+
+
+\subsection*{Task 1}
+\textbf{Download Address Simulator}
+
+
+\begin{enumerate}
+\item Download Address Translation Simulator (address.zip) from the following web site.
+
+\url{http://vip.cs.utsa.edu/simulators/}
+
+\item Start the simulator by run ``./runaddress''. Or in Windows system, you should click runps.bat file.
+
+\end{enumerate}
+
+\subsection*{Task2}
+
+\textcolor{red}{$^{*}$} Define the following terms:
+
+\begin{enumerate}
+
+\item Physical Address
+\item Logical Address
+\item Page table
+
+\end{enumerate}
+
+
+\subsection*{Task3}
+
+\textcolor{red}{$^{*}$} Explain the following diagram. Put your answer in the .docx file.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=.4]{AddressDiagram.pdf}
+\caption{Address Diagram}
+\end{figure}
+
+\subsection*{Task4}
+
+\textcolor{red}{$^{*}$} Finish all five tests of single level page. Once you finish, please take a screenshot of your screen with all simulator windows showing you completed the test correctly, and add it to your .docx file.
+
+
+\end{document}
+
+
+
+\end{document} 
+

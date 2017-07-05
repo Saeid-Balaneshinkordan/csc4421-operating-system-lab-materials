@@ -1,0 +1,331 @@
+\documentclass[16pt]{article}
+
+%\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+%\lstset{language=c, frame=single, rulesepcolor=\color{blue}}
+
+\lstset{ %
+language=c,                % the language of the code
+basicstyle=\footnotesize,       % the size of the fonts that are used for the code
+%numbers=left,                   % where to put the line-numbers
+%numberstyle=\footnotesize,      % the size of the fonts that are used for the line-numbers
+%stepnumber=2,                   % the step between two line-numbers. If it's 1, each line
+                                % will be numbered
+%numbersep=5pt,                  % how far the line-numbers are from the code
+backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+showspaces=false,               % show spaces adding particular underscores
+showstringspaces=false,         % underline spaces within strings
+showtabs=false,                 % show tabs within strings adding particular underscores
+frame=single,                   % adds a frame around the code
+tabsize=2,                      % sets default tabsize to 2 spaces
+captionpos=b,                   % sets the caption-position to bottom
+breaklines=true,                % sets automatic line breaking
+breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+title=\lstname,                 % show the filename of files included with \lstinputlisting;
+                                % also try caption instead of title
+%escapeinside={\%*}{*)},         % if you want to add a comment within your code
+%morekeywords={*,...}            % if you want to add more keywords to the set
+}
+
+%\usepackage{mdwtab}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{fullpage} %use this package to the standard 1 inch margins on all sides
+\begin{document}
+\title{\huge \textbf{Wayne State University \\
+ \vline \\
+\Huge CSC 4421 - Spring/Summer 2017 \\
+ Computer Operating Systems Labs\\
+ Lab 7 - Process Scheduling}\\
+ \vline
+ }
+\author{\textbf{Instructor}  \vspace{0.2cm} \\ Saeid Balaneshin-kordan\\
+}
+\date{ }
+\maketitle
+
+\begin{center}
+\Large Points Possible: 100
+
+\textcolor{red}{Due: July 2, 2017}
+\end{center}
+
+\section*{Goals}
+
+The purpose of this lab is to help you learn about Process Scheduling.
+
+Every red star represents something you need to submit. Add each item with a red start to a .docx file, and submit just that file to blackboard. When it asks for your file, you can just include the contents of the file. No zipped folder is required.
+
+\section*{Tasks}
+
+\subsection*{Task 1$^*$ (50 points)}
+\textbf{Process Simulator}
+In this task, you are required to run a process simulator and put your answers to the following questions in a file Task\_1\_lastname\_firstname.docx. Use one file with all of the answers and screen-shots. Upload the file to Blackboard(no need to zip).
+
+\begin{enumerate}
+\item Download process scheduler from the following web site.
+
+\url{http://vip.cs.utsa.edu/simulators/}
+
+\item Use ``sudo apt-get install'' in the command line to install c shell and java. You should use install ``default-jre'' and ``csh". If you don't know how to install java in linux, please google it. Or you can use Windows.
+
+\item Type ``csh'' to change into c shell mode. Start the simulator by run ``./runps'' or in Windows system, you should click runps.bat file.
+
+\item  {\it By default, the simulator will run two experiments. The first experiment uses FCFS
+scheduling algorithm, and the second one uses SJF. The program creates lots of logs. Some information
+is shown as soon as the experiment is done. Some other inforamtion can be accessed from various other buttons on the gui, such as ``All(\#)'' which shows process information, and ``Show All Table Data'' which shows some information on each of the runs.} Click the `Run Experiment' button in the
+simulator. Explore the simulator and answer the following questions:
+
+\begin{enumerate}
+\item \textcolor{red}{$^{*}$} How many events were created for each experiment?
+\item \textcolor{red}{$^{*}$} How many milliseconds did each take?
+\item \textcolor{red}{$^{*}$} In both experiments, how many process are created?
+
+\end{enumerate}
+
+\item Restart the simulator again, this time you will only run the FCFS algorithm (by clicking
+Run so that it changes from ``Run All'' to ``Run: myrun 1").
+
+\begin{enumerate}
+\item Look at the process information by clicking the `All(\#)' button in the simulator.
+\item Look at the CPU history information by clicking the `CPU History(\#)' button in the simulator.
+\item \textcolor{red}{$^{*}$} Explain how process 30 is scheduled.
+\end{enumerate}
+
+\item Restart the simulator again, this time you will only run the SJF algorithm (by clicking
+Run so that it changes from ``Run: myrun 1'' to ``Run: myrun 2").
+
+\begin{enumerate}
+\item Look at the process information by clicking the `All(\#)' button in the simulator.
+\item Look at the CPU history information by clicking the `CPU History(\#)' button in the simulator.
+\item \textcolor{red}{$^{*}$} Explain how process 30 is scheduled.
+\item \textcolor{red}{$^{*}$} Explain why process 30 is scheduled differently compared to the process 30 in the last experiment.
+\end{enumerate}
+
+\item Restart the simulator again. Run both scheduling algorithms at once (Run All).
+Draw the following figures (by clicking on the ``Graph Type'' button until it shows
+the appropriate graph, and then clicking the ``Draw'' button.)
+
+\begin{enumerate}
+\item \textcolor{red}{$^{*}$} Draw the waiting time, waiting time box and waiting ratio figures. Include the figures in your file.
+\begin{enumerate}
+\item \textcolor{red}{$^{*}$} Which algorithm has shorter waiting time? Explain the reason.
+\item \textcolor{red}{$^{*}$} Why is the maximum waiting time for SJF larger than FCFS?
+\item \textcolor{red}{$^{*}$} Give some comments about FCFS's and SJF's waiting time in your own
+words. i.e. Pros and Cons.
+\end{enumerate}
+
+\item \textcolor{red}{$^{*}$} Draw `turnaround' and `turnaround box' figures. Include the figures in your file.
+\begin{enumerate}
+\item \textcolor{red}{$^{*}$} What does turnaround time mean?
+\item \textcolor{red}{$^{*}$} From the figures, which algorithm has lower minimum turnaround time? Explain the reason.
+\end{enumerate}
+
+\item \textcolor{red}{$^{*}$} Draw `Gantt Chart' for both FCFS and SJF. Include the figures in your file.
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\subsection*{Task 2}
+
+Read the following guide about the process scheduling simulator. Learn how to change simulation settings.
+
+\subsubsection*{Specifying an Experiment}
+
+An experiment is specified by two files. Each file has a name consisting of a base name
+and an extension. The files are:
+
+\begin{itemize}
+\item The experiment specifies a number of experimental runs.
+Each run is specified by a base name and a possible list of modifications.
+
+\item The experimental run file, which is also called the run file for short contains information about the scheduling algorithm to use,
+the processes to run, and when the processes arrive.
+\end{itemize}
+
+\subsubsection*{Time}
+
+The simulator uses a virtual time which is represented by a floating point value of
+unspecified units. When the simulator is started, the time is set to 0.0. The simulator is
+event driven, and events that occur at the same time may occur in any order.
+
+\subsubsection*{Processes}
+
+A process is specified by the following information:
+
+\begin{itemize}
+\item Arrival time
+\item Total CPU time
+\item CPU burst time distribution
+\item I/O burst time distribution
+\end{itemize}
+
+\subsubsection*{Probability Distribution}
+
+The distribution supported by the simulator are
+
+\begin{itemize}
+\item Constant distribution. Key word: constant
+\item Exponential distribution. Key word: exponential
+\item Uniform distribution. Key word: uniform
+\end{itemize}
+
+\subsubsection*{The structure of a run file}
+
+An experimental run contains all of the information needed to run the simulator on one
+collection of processes. An experimental run specifies a scheduling algorithm, a
+collection of processes, and when the processes arrive. A simple format for an
+experimental run file is like :
+
+\begin{tabular}{l l}
+\textbf{name} & //experimental run name \\ 
+\textbf{comment} & //experimental run description \\
+\textbf{algorithm} & //algorithm description \\
+\textbf{numprocs} & //number of processes \\
+\textbf{firstarrival} & //first arrival time \\
+\textbf{interarrival} & //inter-arrival distribution \\
+\textbf{duration} & //duration distribution \\
+\textbf{cpuburst} & //cpu burst distribution \\
+\textbf{ioburst}  & //io burst distribution \\
+\textbf{basepriority} & //base priority 
+\end{tabular}
+
+
+Here is a sample experimental run file that must be stored in the file \textbf{myrun.run}.
+
+\lstinputlisting{myrun.txt}
+
+This file specifies a run of 20 processes using the shortest job first algorithm. The first
+process arrives at time 0.0. The inter-arrival times are all 0.0, so all processes arrive at the
+same time. Each process has a duration (total CPU time) chosen from a uniform
+distribution on the interval from 500 to 1000. All processes have a constant cpu burst
+time of 50 and a small constant I/O burst time of 1.0. The base priority must be present in
+the file, but it is currently not used by the simulator.
+
+\subsubsection*{The structure of an exp file}
+
+An experiment specifies a number of experimental runs that are to be made, compared
+and analyzed. There are an arbitrary number of lines specifying experimental runs to be
+made.
+
+The simulator allows you to do this by specifying the same experimental run in each case
+and giving a new value to one or more parameters. The general format for a run line in
+the experiment file consists of the word \textbf{run} followed by the name of an experimental
+run, followed by a list of modifications to that experimental run. So it looks like this
+
+\begin{tabular}{l l l}
+name  & experiment\_name & \\
+comment & experiment\_description & \\
+run & run\_name1 & optional\_modification\_list1 \\
+... & &\\
+run & run\_namen & optional\_modification\_listn \\
+\end{tabular}
+
+Here is an example experiment file that must be stored in the file \textbf{myexp.exp}
+
+\lstinputlisting{myexp.txt}
+
+This experiment file makes three runs. All of the runs are based on the run file
+\textbf{myrun.run} above. In the second run the CPU burst distribution is changed to be uniform
+in the interval from 10 to 90. In the third run the CPU burst is an exponential distribution
+with mean 50.
+Here is a list of the key words you can modify:
+
+
+\begin{itemize}
+\item \textbf{numprocs}: the number of processes to create.
+\item \textbf{firstarrival}: the arrival time of the first process, a floating point number.
+\item \textbf{basepriority}: the base priority of the processes created. This base priority is not
+used unless the simulator is using priorities.
+\item \textbf{interarrival}: the distribution of the interarrival times of the processes.
+\item \textbf{duration}: the distribution of the total CPU time used by the processes.
+\item \textbf{cpuburst}: the distribution of the CPU burst times of the processes.
+\item \textbf{ioburst}: the distribution of the I/O burst times of the processes.
+\item \textbf{algorithm}: the scheduling algorithm to use.
+\end{itemize}
+
+
+\subsubsection*{Scheduling Algorithms Supported}
+
+\begin{itemize}
+\item  Round Robin (RR):
+\item  First-Come/First-Served (FCFS): Processes are taken from the ready queue in
+   the order that they arrived. Once a process is using the CPU, it stays there until its
+  CPU burst expires. It then goes into the I/O waiting queue until its I/O burst
+ expires.
+\item  Shortest Job First (SJF): The next process to be removed from the ready queue
+   is the one with the shortest CPU burst time. If there is more than one process with
+  the smallest time, the one that arrived first is taken.
+\end{itemize}
+A scheduling algorithm is specified with a string and a possible optional floating point
+parameter depending on the scheduling algorithm. The following strings are used to
+specify scheduling algorithms:
+
+\begin{itemize}
+\item \textbf{RR} quantum represents the Round Robin algorithm with the given quantum.
+\item \textbf{FCFS} represents the First-Come/First-Served algorithm.
+\item \textbf{SJF} represents Shortest Job First scheduling.
+\end{itemize}
+
+\newpage
+\subsection*{Task 3\textcolor{red}{$^{*}$} (25 points): FCFS and SJF}
+
+\begin{itemize}
+\item Modify the \texttt{myexp.exp} file to have 2 run lines that will use the following
+algorithms:
+
+FCFS, SJF, On each run line, make sure that both the algorithm and key are
+appropriately set.
+\item Now modify the myrun.run file so that there will be a total of 20 processes with
+the following properties:
+
+\begin{itemize}
+\item Do not change the seed line of the run file.
+\item All processes arrive at time 0.0.
+\item All processes have a constant duration of 100.
+\item All have constant I/O bursts of 10.
+\item All have basepriority 1.0.
+\item The first 10 processes have CPU bursts uniformly distributed between 2
+and 8.
+\item The last 10 processes have CPU bursts uniformly distributed between 50
+and 60.
+\end{itemize}
+\item Run the simulator using FCFS and SJF and draw a `Gantt chart' for each of the two ().
+Add these two figures along with the revised myexp.exp and myrun.run files to your file.
+\item Did you find any difference from those two figures? Briefly explain the impact of
+these two scheduling algorithms?
+
+\end{itemize}
+
+\subsection*{Task 4\textcolor{red}{$^{*}$} (25 points): Round Robin}
+
+\begin{itemize}
+\item Modify the \texttt{myexp.exp} file to have 4 run lines that will use the following
+algorithms:
+
+RR 5, RR 20, RR 100, and RR 200. On each run line, make sure that both the
+algorithm and key are appropriately set like this:
+
+run myrun algorithm RR 200 key ``RR 200"
+
+\item Now modify the myrun.run file so that there will be a total of 20 processes with
+the following properties:
+
+\begin{itemize}
+\item Do not change the seed line of the run file.
+\item All processes arrive at time 0.0.
+\item All processes have a constant duration of 1000.
+\item All processes have constant CPU bursts of 101.
+\item All have constant I/O bursts of 100.
+\end{itemize}
+
+\item Run the simulator using the revised experiment setting. Draw the `Gantt chart' for each run. Submit these 4 figures along with the revised myexp.exp and myrun.run files.
+
+\item Briefly describe the Round Robin algorithm, and the impact of using different quantums.
+
+\end{itemize}
+\end{document}
